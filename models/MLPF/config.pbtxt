@@ -48,7 +48,7 @@ model_repository_agents {
   agents {
     name: "checksum"
     parameters {
-      key: "MD5:../../mlpf/mlpf_5M_attn2x3x256_bm12_relu_checkpoint10_8xmi250_fp32_fused_20250722.onnx"
+      key: "MD5:1/model.onnx"
       value: "215cb06d90231647aa04ab4da985971d"
     }
   }
