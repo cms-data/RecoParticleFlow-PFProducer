@@ -1,0 +1,55 @@
+name: "MLPF"
+platform: "onnxruntime_onnx"
+max_batch_size: 8
+input {
+  name: "mask"
+  data_type: TYPE_FP32
+  dims: [-1]
+}
+input {
+  name: "Xfeat_normed"
+  data_type: TYPE_FP32
+  dims: [-1, 55]
+}
+output {
+  name: "bid"
+  data_type: TYPE_FP32
+  dims: [-1, 2]
+}
+output {
+  name: "id"
+  data_type: TYPE_FP32
+  dims: [-1, 9]
+}
+output {
+  name: "momentum"
+  data_type: TYPE_FP32
+  dims: [-1, 5]
+}
+optimization {
+  graph {
+    level: -1
+  }
+}
+parameters {
+  key: "inter_op_thread_count"
+  value {
+    string_value: "1"
+  }
+}
+parameters {
+  key: "intra_op_thread_count"
+  value {
+    string_value: "1"
+  }
+}
+backend: "onnxruntime"
+model_repository_agents {
+  agents {
+    name: "checksum"
+    parameters {
+      key: "MD5:1/model.onnx"
+      value: "215cb06d90231647aa04ab4da985971d"
+    }
+  }
+}
